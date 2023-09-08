@@ -1,0 +1,30 @@
+<%- include('partials/header.ejs') %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 box heading"><%= date %> - <%= type %></div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-6 box ">
+
+      <% for (let i =0 ; i<newListItems.length; i++){ %>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="check-<%=[i]%>">
+        <label class="form-check-label strikethrough" for="check-<%=[i]%>">
+          <%= newListItems[i]%>
+        </label>
+      </div>
+      <% } %>
+      <form class="item mt-5" action="/" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" name="newItem" placeholder="New Item" aria-label="New Item" aria-describedby="button-addon2" required>
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2" name="<%=type%>" value=""><i class="fa-solid fa-plus fa-lg"></i></i></button>
+        </div>
+
+        <!-- <input type ="text" name ="newItem" placeholder = "New Item" autocomplete = "off" autofocus ="true"/>
+          <button type = "submit" name = "list" value = "">+</button> -->
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('partials/footer.ejs') %>
